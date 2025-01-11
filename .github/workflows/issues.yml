@@ -1,0 +1,16 @@
+name: Handle issues
+on: issues
+jobs:
+  listen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print issue event
+        run: |
+          echo "Github event:"
+          echo "${{ toJSON(github.event) }}"
+          echo "Issue event:"
+          echo "$GITHUB_EVENT_NAME"
+          echo "Issue title:"
+          echo "${{ github.event.issue.title }}"
+          echo "Issue body:"
+          echo "${{ github.event.issue.body }}"
